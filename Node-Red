@@ -1,0 +1,186 @@
+[
+    {
+        "id": "2ac05c280cea9a2a",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "5a2745126bbfdaf7",
+        "type": "debug",
+        "z": "2ac05c280cea9a2a",
+        "name": "debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "59be441530f9a680",
+        "type": "function",
+        "z": "2ac05c280cea9a2a",
+        "name": "function 1",
+        "func": "var readings = global.get('readings') || [];\nvar previousData = global.get('previousData') || { DO: \"\", EC: \"\", PH: \"\" };\n\n// Add the current reading to the array\nreadings.push(msg.payload.trim());\n\n// Log the intermediate readings\n//node.warn(\"Intermediate readings: \" + JSON.stringify(readings));\n\n// When we have three readings, process them\nif (readings.length === 3) {\n    var data = {\n        DO: readings[0] || previousData.DO,\n        EC: readings[1] || previousData.EC,\n        PH: readings[2] || previousData.PH\n    };\n    global.set('readings', []);  // Clear the readings array\n    global.set('previousData', data);  // Update the previous readings\n    msg.payload = data;\n    return [msg, null];\n} else {\n    global.set('readings', readings);\n    return [null, null];\n}\n",
+        "outputs": 3,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 200,
+        "wires": [
+            [
+                "5a2745126bbfdaf7",
+                "efaa42ef8fb57ca8",
+                "97d9dab9b7f071d4",
+                "522370d601211d4b"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "14ef1ceef89a3efc",
+        "type": "split",
+        "z": "2ac05c280cea9a2a",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "property": "payload",
+        "x": 230,
+        "y": 200,
+        "wires": [
+            [
+                "59be441530f9a680"
+            ]
+        ]
+    },
+    {
+        "id": "8d127304116aca7c",
+        "type": "serial in",
+        "z": "2ac05c280cea9a2a",
+        "name": "",
+        "serial": "70e090912f474ddb",
+        "x": 70,
+        "y": 200,
+        "wires": [
+            [
+                "14ef1ceef89a3efc"
+            ]
+        ]
+    },
+    {
+        "id": "efaa42ef8fb57ca8",
+        "type": "ui_text",
+        "z": "2ac05c280cea9a2a",
+        "group": "dashboard_group",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "pH",
+        "format": "{{msg.payload.PH}}",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 550,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "522370d601211d4b",
+        "type": "ui_text",
+        "z": "2ac05c280cea9a2a",
+        "group": "dashboard_group",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Dissolved Oxygen",
+        "format": "{{msg.payload.DO}} mg/L",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 590,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "97d9dab9b7f071d4",
+        "type": "ui_text",
+        "z": "2ac05c280cea9a2a",
+        "group": "dashboard_group",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Electrical Conductivity",
+        "format": "{{msg.payload.EC}} µS/cm",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 600,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "70e090912f474ddb",
+        "type": "serial-port",
+        "name": "COM8 - 9600",
+        "serialport": "COM8",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "dashboard_group",
+        "type": "ui_group",
+        "name": "Sensor Readings",
+        "tab": "dashboard_tab",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "dashboard_tab",
+        "type": "ui_tab",
+        "name": "Dashboard",
+        "icon": "dashboard",
+        "order": 1
+    }
+]
