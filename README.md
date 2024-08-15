@@ -50,7 +50,15 @@ To use multiple Atlas Scientific Sensors, a Whitebox Labs Tentacle Shield is use
 - [Arduino Uno Sample Code](https://files.atlas-scientific.com/Arduino-Uno-flow-sample-code.pdf)
 
 
-## How to use Node-Red
+## Node-Red
+### Documentation & References
+- [Running on Windows](https://nodered.org/docs/getting-started/windows#running-on-windows)
+- [Creating your first flow](https://nodered.org/docs/tutorials/first-flow#next-steps)
+- [Creating your second flow](https://nodered.org/docs/tutorials/second-flow)
+- [Arduino and Node-Red](https://docs.arduino.cc/arduino-cloud/guides/node-red/)
+   - How to use Node-Red with Arduino Cloud. Attempted but ran into issues when trying to install Arduino palette on Node-Red.  
+
+### How to use Node-Red
 1. Open Windows Powershell
 2. Type "node-red"
 3. Open Node-Red website: http://localhost:1880/#flow/427bda2db7b524f0
