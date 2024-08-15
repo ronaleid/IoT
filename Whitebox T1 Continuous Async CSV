@@ -1,3 +1,7 @@
+//This code has modified Whitebox's T1 Continuous Async code to print the sensor data in a csv **format** in the serial monitor.
+//Currently working on saving the data to make a csv file. 
+
+
 // WhiteBox Labs -- Tentacle Shield -- UART asynchronous example
 // https://www.whiteboxes.ch/tentacle
 //
