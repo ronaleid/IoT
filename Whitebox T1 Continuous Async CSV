@@ -1,5 +1,8 @@
 //This code has modified Whitebox's T1 Continuous Async code to print the sensor data in a csv format in the serial monitor. 
-//Currently working on saving the data to make a csv file. 
+//Currently working on saving the data to make a csv file.
+
+//Encountered a problem where sensor data is not in right order. The order of the data should be: Dissolved Oxygen (DO),Electrical Conductivity(EC),pH.
+//The numbers will be in different spots. This is most likely due to the sensors collecting data at different times.  
 
 
 // WhiteBox Labs -- Tentacle Shield -- UART asynchronous example
