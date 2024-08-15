@@ -24,13 +24,30 @@ To use multiple Atlas Scientific Sensors, a Whitebox Labs Tentacle Shield is use
      - How to store them, life expectancies, etc. 
 
 ### Electrical Conductivity (Probe K1.0)
-
+- [Conductivity K 1.0 Kit](https://atlas-scientific.com/kits/conductivity-k-1-0-kit/)
+- Data Sheets
+  - [EZO Circuit](https://files.atlas-scientific.com/EC_EZO_Datasheet.pdf)
+     - Contains UART Commands
+  - [Probe](https://files.atlas-scientific.com/EC_K_1.0_probe.pdf)
+     - How to store them, life expectancies, etc.
 
 ### pH
-
+- [pH Kit](https://atlas-scientific.com/kits/ph-kit/)
+- Data Sheets
+  - [EZO Circuit](https://files.atlas-scientific.com/pH_EZO_Datasheet.pdf)
+     - Contains UART Commands
+  - [Probe](https://files.atlas-scientific.com/pH_probe.pdf)
+     - How to store them, life expectancies, etc..
 
 ### Flow meter
-
+- [1/2" Flow Meter Kit](https://atlas-scientific.com/kits/1-2-flow-meter-kit/)
+- Data Sheets
+  - [EZO Circuit](https://files.atlas-scientific.com/flow_EZO_Datasheet.pdf)
+     - Contains UART Commands
+  - [Flow Meter](https://files.atlas-scientific.com/1-2_flow_datasheet.pdf)
+     - How to store them, life expectancies, etc.
+- [Wiring Diagram](https://files.atlas-scientific.com/ezo-flow-wiringdiagram.pdf)
+- [Arduino Uno Sample Code](https://files.atlas-scientific.com/Arduino-Uno-flow-sample-code.pdf)
 
 
 ## How to use Node-Red
