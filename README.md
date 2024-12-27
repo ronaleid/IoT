@@ -62,4 +62,5 @@ To use multiple Atlas Scientific Sensors, a Whitebox Labs Tentacle Shield is use
 1. Open Windows Powershell
 2. Type "node-red"
 3. Open Node-Red website: http://localhost:1880/#flow/427bda2db7b524f0
-4. Enjoy!
+5. Enjoy!
+  - Note: When using Node-Red, Arduino software MUST BE CLOSED. Make sure using right COM in Node-Red, this depends on where the wire is plugged in.
