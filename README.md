@@ -11,6 +11,17 @@ Node-Red is used to manipulate data.
 To use multiple Atlas Scientific Sensors, a Whitebox Labs Tentacle Shield is used. 
 [Whitebox Website and Documentation](https://www.whiteboxes.ch/docs/tentacle/t1/#/)
 
+## Notes for Code
+**Circuit Channels**
+### Current Order
+1, 2, 3, 4, 5
+"DO", "ORP", "PH", "EC", "CO2"
+97, 98, 99, 100, 105
+
+### Sensors To Add to Main Interlink
+"FLOW"
+104
+
 
 ## Atlas Scientific Sensors and Documentation
 [Atlas Scientific Website](https://atlas-scientific.com/)
@@ -64,3 +75,26 @@ To use multiple Atlas Scientific Sensors, a Whitebox Labs Tentacle Shield is use
 3. Open Node-Red website: http://localhost:1880/#flow/427bda2db7b524f0
 5. Enjoy!
   - Note: When using Node-Red, Arduino software MUST BE CLOSED. Make sure using right COM in Node-Red, this depends on where the wire is plugged in.
+
+
+## Update Log ♩¨̮(ง ˙˘˙ )ว♩¨̮
+### 1/7/25
+Added Flow Meter to separate interlink. Manually switched Flow Meter circuit by using shorting between TX and PRB method.
+Humidity sensor may be faulty. Green wire is not properly connected to [female connector](https://www.molex.com/en-us/products/part-detail/0022012057).
+
+### 1/2/25
+CO2 sensor was added to interlink. Code is not yet uploaded to Github.
+ORP sensor sensor is not calibrating properly 😞
+- I let it sit in the calibration solution for almost an hour and readings were consistently printing out with values around 950-990. The sensor is supposed to be consistently reading 240.1 when stabilized.
+
+### 12/27/24
+All sensors (DO, EC, and pH) were transferred to the AtlasScientific i1InterLink and switched from UART mode to I2C mode.
+The interlink only works in **i2c** mode
+
+I2C vs UART
+- I2C is best for connecting multiple devices over a shared bus and is ideal for short-range, low-speed communication in embedded systems.
+- UART is simpler and often used for one-to-one communication, such as debugging or linking microcontrollers to external modules.
+
+Since switching to i2c mode, numbers no long switch between sensors when readings are recorded and printed. 
+
+Oxidation Reduction Potential (ORP) sensor was added to interlink. Code is not yet uploaded to GitHub.  
