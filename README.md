@@ -81,6 +81,8 @@ To use multiple Atlas Scientific Sensors, a Whitebox Labs Tentacle Shield is use
 ### 1/7/25
 Added Flow Meter to separate interlink. Manually switched Flow Meter circuit by using shorting between TX and PRB method.
 Humidity sensor may be faulty. Green wire is not properly connected to [female connector](https://www.molex.com/en-us/products/part-detail/0022012057).
+Cannot see if RGB sensor switches between UART (green light) and I2C (blue light). Resin/water protection is black and not clear like CO2 sensor. 
+Tried to use RGB sensor with interlink, but was not working. It worked directly connected to Arduino and using old RGB code from 2020, but it only printed LUX number.
 
 ### 1/2/25
 CO2 sensor was added to interlink. Code is not yet uploaded to Github.
